@@ -24,8 +24,9 @@ VOICE_ID = "29vD33N1CtxCmqQRPOHJ"
 
 dotenv.load_dotenv()
 API_KEY_OPENAI = os.getenv("API_OPENAI")
-if API_KEY_OPENAI is None:
-  raise Exception("API_OPENAI is not set or env file is not loaded")
+API_KEY_ELEVENLABS = os.getenv("API_ELEVENLABS")
+if API_KEY_OPENAI is None or API_KEY_ELEVENLABS is None:
+  raise Exception("Api keys not set or env file is not loaded")
 # OpenAI API Key
 
 
