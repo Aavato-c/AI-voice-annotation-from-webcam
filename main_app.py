@@ -2,6 +2,18 @@ import base64
 import requests
 import dotenv
 import os
+import logging
+
+logger = logging.getLogger(__name__)
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(message)s",
+    handlers=[
+        logging.FileHandler("main_app.log"),
+        logging.StreamHandler()
+    ]
+  )
+
 
 dotenv.load_dotenv()
 API_KEY = os.getenv("API_OPENAI")
