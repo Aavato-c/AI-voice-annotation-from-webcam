@@ -101,7 +101,7 @@ def call_elevenlabs_api(text, api_key=API_KEY_ELEVENLABS):
 
   response = requests.post(url, json=data, headers=headers)
   timestamp = datetime.datetime.now().strftime("%Y_%m_%d_%H_%M_%S_")
-  filename = f"./media/audio_{timestamp}.mp3"
+  filename = f"./media/audio/{timestamp}.mp3"
   with open(filename, 'wb') as f:
       for chunk in response.iter_content(chunk_size=CHUNK_SIZE):
           if chunk:
