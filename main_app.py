@@ -109,6 +109,7 @@ def call_elevenlabs_api(text):
 
 def main():
   interval = 5
+  max_loop = 10
   while True:
     logger.info("Getting description")
     description = get_description()
@@ -117,8 +118,17 @@ def main():
     logger.info("Playing sound")
     playsound(path_to_sound)
     logger.info(f"Sleeping for {interval} seconds")
-    time.sleep(interval) 
+    time.sleep(interval)
+    loop += 1
+    if loop > max_loop:
+      break
+    
+
+
   
+if __name__ == "__main__":
+  main()
+
 
 
 
