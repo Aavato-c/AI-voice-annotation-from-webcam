@@ -6,3 +6,5 @@ test*
 *.log
 media/*.jpg
 media/archive/*.jpg
+media/descriptions/*.txt
+media/audio/*.mp3
