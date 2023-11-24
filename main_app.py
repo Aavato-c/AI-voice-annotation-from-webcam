@@ -24,7 +24,7 @@ PROMPT = "You're task is to create a narration to this image. What is the person
 
 # Elevenlabs configs
 
-VOICE_ID = "29vD33N1CtxCmqQRPOHJ"
+VOICE_ID = "7ocq291fMmdXFngd68ml"
 
 dotenv.load_dotenv()
 API_KEY_OPENAI = os.getenv("API_OPENAI")
