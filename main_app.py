@@ -4,6 +4,7 @@ import dotenv
 import os
 import logging
 import datetime
+from playsound import playsound
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(
