@@ -43,7 +43,7 @@ payload = {
       "content": [
         {
           "type": "text",
-          "text": "What’s in this image?"
+          "text": "You're task is to create a narration to this image. What is the person doing? What are their intentions? You can speculate freely."
         },
         {
           "type": "image_url",
