@@ -1,6 +1,7 @@
 import base64
 import requests
 import dotenv
+import json
 import os
 import time
 import logging
@@ -71,6 +72,12 @@ def get_description(image_path = IMAGE_PATH):
   response = requests.post("https://api.openai.com/v1/chat/completions", headers=headers, json=payload)
 
   logger.debug(response.json())
+
+  timestamp = datetime.datetime.now().strftime("%Y_%m_%d_%H_%M_%S_")
+  filename = f"./media/descriptions/description_{timestamp}.json"
+  json.dump(response.json(), open(filename, "w"), indent=4, sort_keys=True, ensure_ascii=False)
+  
+  
 
   return response.json()["choices"][0]["text"]
 
