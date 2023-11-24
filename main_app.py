@@ -68,12 +68,15 @@ def get_description(image_path = IMAGE_PATH):
 
 
   timestamp = datetime.datetime.now().strftime("%Y_%m_%d_%H_%M_%S_")
-  filename = f"./media/descriptions/description_{timestamp}.json"
-  json.dump(response.json(), open(filename, "w"), indent=4, sort_keys=True, ensure_ascii=False)
+  filename = f"./media/descriptions/description_{timestamp}.txt"
+  
+  
+  with open(filename, 'w') as f:
+    f.write(response.choices[0].message.content)
   
   
 
-  return response.json()["choices"][0]["text"]
+  return response.choices[0].message.content
 
 
 
