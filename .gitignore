@@ -4,3 +4,5 @@ __pycache__
 .env
 test*
 *.log
+media/*.jpg
+media/archive/*.jpg
