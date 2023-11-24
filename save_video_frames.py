@@ -24,10 +24,8 @@ def getFrame():
     timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
     hasFrames, image = vid.read()
     if hasFrames:
-        imshow("Current_image", image) 
         imwrite("./media/CURRENT.jpg", image,)
         imwrite(f"./media/archive/IMG_{timestamp}.jpg", image,)
-        destroyWindow("Current_image") 
         logger.debug("Image saved")
     else:
         logger.info("Couldn't get image. We'll wait a sec and try again")
