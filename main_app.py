@@ -63,7 +63,7 @@ def get_description(image_path = IMAGE_PATH):
         ],
       }
     ],
-    max_tokens=300,
+    max_tokens=100,
   )
 
 
