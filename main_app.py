@@ -71,3 +71,35 @@ def get_description(image_path = IMAGE_PATH):
 
   return response.json()["choices"][0]["text"]
 
+
+
+def call_elevenlabs_api(text):
+  CHUNK_SIZE = 1024
+  url = f"https://api.elevenlabs.io/v1/text-to-speech/{VOICE_ID}"
+
+  headers = {
+    "Accept": "audio/mpeg",
+    "Content-Type": "application/json",
+    "xi-api-key": "<xi-api-key>"
+  }
+
+  data = {
+    "text": text,
+    "model_id": "eleven_monolingual_v1",
+    "voice_settings": {
+      "stability": 0.5,
+      "similarity_boost": 0.5
+    }
+  }
+
+  response = requests.post(url, json=data, headers=headers)
+  timestamp = datetime.datetime.now().strftime("%Y_%m_%d_%H_%M_%S_")
+  with open(f"./media/audio_{timestamp}.mp3", 'wb') as f:
+      for chunk in response.iter_content(chunk_size=CHUNK_SIZE):
+          if chunk:
+              f.write(chunk)
+
+  logger.debug(response.json())
+
+  return response.json()
+
