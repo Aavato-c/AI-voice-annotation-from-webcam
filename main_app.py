@@ -80,14 +80,14 @@ def get_description(image_path = IMAGE_PATH):
 
 
 
-def call_elevenlabs_api(text):
+def call_elevenlabs_api(text, api_key=API_KEY_ELEVENLABS):
   CHUNK_SIZE = 1024
   url = f"https://api.elevenlabs.io/v1/text-to-speech/{VOICE_ID}"
 
   headers = {
     "Accept": "audio/mpeg",
     "Content-Type": "application/json",
-    "xi-api-key": "<xi-api-key>"
+    "xi-api-key": api_key
   }
 
   data = {
