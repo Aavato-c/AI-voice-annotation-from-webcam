@@ -1,8 +1,14 @@
 import base64
 import requests
+import dotenv
+import os
 
+dotenv.load_dotenv()
+API_KEY = os.getenv("API_OPENAI")
+if API_KEY is None:
+  raise Exception("API_OPENAI is not set or env file is not loaded")
 # OpenAI API Key
-api_key = "YOUR_OPENAI_API_KEY"
+api_key = API_KEY
 
 # Function to encode the image
 def encode_image(image_path):
