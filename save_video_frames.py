@@ -30,7 +30,7 @@ def getFrame():
         logger.debug("Image saved")
     else:
         logger.info("Couldn't get image. We'll wait a sec and try again")
-        time.sleep(3)
+        time.sleep(1)
         vid.release()
         getFrame()
 
