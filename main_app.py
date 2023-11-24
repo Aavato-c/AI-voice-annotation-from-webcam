@@ -112,8 +112,10 @@ def call_elevenlabs_api(text, api_key=API_KEY_ELEVENLABS):
   return filename
   
 
+
 def main():
   interval = 5
+  loop = 0
   max_loop = 10
   while True:
     logger.info("Getting description")
