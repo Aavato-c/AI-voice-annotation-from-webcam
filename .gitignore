@@ -2,3 +2,5 @@ venv
 test_folder
 __pycache__
 .env
+test*
+*.log
