@@ -21,6 +21,7 @@ logging.basicConfig(
 
 def getFrame():
     vid = cv2.VideoCapture(0)
+    time.sleep(1) # Wait for the brihtness to adjust
     timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
     hasFrames, image = vid.read()
     if hasFrames:
