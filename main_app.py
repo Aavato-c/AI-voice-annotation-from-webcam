@@ -107,9 +107,10 @@ def call_elevenlabs_api(text, api_key=API_KEY_ELEVENLABS):
           if chunk:
               f.write(chunk)
 
-  logger.debug(response.json())
 
-  return response.json()
+
+  return filename
+  
 
 def main():
   interval = 5
