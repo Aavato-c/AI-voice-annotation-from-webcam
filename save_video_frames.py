@@ -19,7 +19,7 @@ logging.basicConfig(
 
 
 
-def getFrames_loop():
+def getFrame():
     vid = cv2.VideoCapture(0)
     timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
     hasFrames, image = vid.read()
@@ -33,12 +33,19 @@ def getFrames_loop():
         logger.info("Couldn't get image. We'll wait a sec and try again")
         time.sleep(3)
         vid.release()
-        getFrames_loop()
+        getFrame()
 
     return image
 
 
 
 if __name__ == "__main__":
-    getFrames_loop()
-    
+    debug_max_loop = 50
+    while True:
+        getFrame()
+        time.sleep(3)
+        debug_max_loop -= 1
+        if debug_max_loop == 0:
+            break
+
+
