@@ -107,3 +107,19 @@ def call_elevenlabs_api(text):
 
   return response.json()
 
+def main():
+  interval = 5
+  while True:
+    logger.info("Getting description")
+    description = get_description()
+    logger.info("Calling Elevenlabs API")
+    path_to_sound = call_elevenlabs_api(description)
+    logger.info("Playing sound")
+    playsound(path_to_sound)
+    logger.info(f"Sleeping for {interval} seconds")
+    time.sleep(interval) 
+  
+
+
+
+    
